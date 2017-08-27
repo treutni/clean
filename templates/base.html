@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="{% block description %}{% endblock description %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+</head>
+<body>
+    {% if site_area == "home" %}
+        <!-- Home page header -->
+        <header class="header">
+            <div class="container clearfix">
+                <nav id="nav" role="navigation">                    
+                    <div class="col col-2-3 left">
+                        <a href="{% url 'home' %}">home</a>
+                        <a href="#">sobre</a>
+                        <a href="#">serviços</a>
+                        <a href="#">clientes</a>
+                        <a href="#">notícias</a>
+                        <a href="#">contato</a>                        
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="banner">
+            <div class="container">
+                <img src="{% static '' %}" alt="">
+            </div>
+        </div>
+    {% else %}
+        <!-- Newsletter page header -->
+    {% endif %}
+    {% block main %}
+    {% endblock main %}
+</body>
+</html>
